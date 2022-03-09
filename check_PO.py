@@ -2,7 +2,12 @@ import os
 import xml.etree.ElementTree as ET
 import os
 
-cust_PO = [' 80241598', ' 10229170', ' 70229170', ' 10229170', ' 70229170', ' 10229170', ' 70229170', ' 10229170', ' 70229170', ' 10229170', ' 70229170']
+#get customer PO from text file 
+text_file = open("C:/Users/youngin.kim/Desktop/Tradelink/Value search Program/datafiles/poList.txt", "r")
+cust_PO = text_file.read().splitlines()
+text_file.close()
+
+#create empty list to store POs for later
 file_PO = []
 received_PO = []
 not_received_PO = []
