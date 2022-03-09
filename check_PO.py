@@ -2,18 +2,21 @@ import os
 import xml.etree.ElementTree as ET
 import os
 
-#get customer PO from text file 
+# get customer PO from text file 
+# delete empty lines 
 text_file = open("C:/Users/youngin.kim/Desktop/Tradelink/Value search Program/datafiles/poList.txt", "r")
-cust_PO = text_file.read().splitlines()
+cust_PO = text_file.read().splitlines() 
 text_file.close()
+cust_PO = ' '.join(cust_PO).split()
+print(cust_PO)
 
 #create empty list to store POs for later
 file_PO = []
 received_PO = []
 not_received_PO = []
 
-rootdir = "C:/Users/youngin.kim/Desktop/Tradelink/Value search Program/EDI/02"
-#rootdir = "//192.168.11.3/ftp/CTRC/ARCHIVE/940/2022/03"
+rootdir = "C:/Users/youngin.kim/Desktop/Tradelink/Value search Program/EDI/03"
+#rootdir = "://192.168.11.3/ftp/CTRC/ARCHIVE/940/2022/03/"
 
 # go through all files in subfolders 
 for subdir, dirs, files in os.walk(rootdir): 
@@ -31,6 +34,7 @@ for subdir, dirs, files in os.walk(rootdir):
                 else: 
                     file_PO.append(PO) 
                     
+                    
 
 # if cust_PO exists in file_PO, append the PO to received PO list 
 # print received PO list 
@@ -47,3 +51,4 @@ else:
     print('\nReceived\n',*received_PO, sep ='\n ')
 
 
+print(rootdir)

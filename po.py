@@ -1,5 +1,5 @@
 text_file = open("C:/Users/youngin.kim/Desktop/Tradelink/Value search Program/datafiles/poList.txt", "r")
-cust_PO = text_file.read().splitlines()
-print(cust_PO)
+cust_PO = text_file.read().splitlines() 
 text_file.close()
-
+cust_PO = ' '.join(cust_PO).split()
+print(cust_PO)
